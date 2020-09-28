@@ -32,6 +32,18 @@ impl Game {
     pub fn new(id: String, ruleset: Ruleset, timeout: i64) -> Game {
         Game {id, ruleset, timeout}
     }
+
+    pub fn get_id(&self) -> &String {
+        &self.id
+    }
+
+    pub fn get_ruleset(&self) -> &Ruleset {
+        &self.ruleset
+    }
+
+    pub fn get_timeout(&self) -> i64 {
+        self.timeout
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -43,6 +55,14 @@ pub struct Ruleset {
 impl Ruleset {
     pub fn new(name: String, version: String) -> Ruleset {
         Ruleset {name, version}
+    }
+
+    pub fn get_name(&self) -> &String {
+        &self.name
+    }
+
+    pub fn get_version(&self) -> &String {
+        &self.version
     }
 }
 
@@ -65,6 +85,38 @@ impl Battlesnake {
     ) -> Battlesnake {
         Battlesnake {id, name, health, body, latency, head, length, shout}
     }
+
+    pub fn get_id(&self) -> &String {
+        &self.id
+    }
+
+    pub fn get_name(&self) -> &String {
+        &self.name
+    }
+
+    pub fn get_health(&self) -> i64 {
+        self.health
+    }
+
+    pub fn get_body(&self) -> &Vec<Coordinate> {
+        &self.body
+    }
+
+    pub fn get_latency(&self) -> &String {
+        &self.latency
+    }
+
+    pub fn get_head(&self) -> &Coordinate {
+        &self.head
+    }
+
+    pub fn get_length(&self) -> i64 {
+        self.length
+    }
+
+    pub fn get_shout(&self) -> &String {
+        &self.shout
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -79,6 +131,26 @@ pub struct Board {
 impl Board {
     pub fn new(height: i64, width: i64, food: Vec<Coordinate>, hazards: Vec<Coordinate>, snakes: Vec<Battlesnake>) -> Board {
         Board {height, width, food, hazards, snakes}
+    }
+
+    pub fn get_height(&self) -> i64 {
+        self.height
+    }
+
+    pub fn get_width(&self) -> i64 {
+        self.width
+    }
+
+    pub fn get_food(&self) -> &Vec<Coordinate> {
+        &self.food
+    }
+
+    pub fn get_hazards(&self) -> &Vec<Coordinate> {
+        &self.hazards
+    }
+
+    pub fn get_snakes(&self) -> &Vec<Battlesnake> {
+        &self.snakes
     }
 }
 
